@@ -9,6 +9,8 @@ from photos (clearly visible, bright trapezoids on dark background),
 it performs worse if there is a lot of other shapes of similar luminosity 
 as main object - it needs improvements in this department.
 
+Samples included.
+
 ### most important functions used
 
 * **cv2.findContours()** 
