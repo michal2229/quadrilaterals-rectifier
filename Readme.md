@@ -1,6 +1,6 @@
 ## readme
 
-This is some script i wrote which finds quadrilateral surface on image, 
+This is a script I wrote which finds quadrilateral surface on image, 
 transforms this image to make this surface rectangular 
 and the crops it to this surface only. 
 
