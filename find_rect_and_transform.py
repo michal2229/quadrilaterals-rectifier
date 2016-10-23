@@ -13,7 +13,7 @@ def extract_rect(im):
     
     ret,thresh = cv2.threshold(imgray, 127, 255, 0)
     
-    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_appr_SIMPLE)
+    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
     # finding contour with max area
     largest = None
@@ -22,7 +22,7 @@ def extract_rect(im):
             largest = cnt
 
     peri = cv2.arcLength(largest, True)
-    appr = cv2.apprPolyDP(largest, 0.02 * peri, True)
+    appr = cv2.approxPolyDP(largest, 0.02 * peri, True)
 
     #cv2.drawContours(im, appr, -1, (0,255,0), 3)
     points_list = [[i[0][0], i[0][1]] for i in appr] 
@@ -115,8 +115,8 @@ if __name__ == "__main__":
 
             outfile = re.sub("^.*/", outpath, file)
             cv2.imwrite(outfile, im)
-        except:
-            print("...failed")
+        except Exception as e:
+            print("...failed: " + str(e))
             
             
             
